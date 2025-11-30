@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: desafio3-db
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: appdb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - internal-net
+
+  cache:
+    image: redis:7-alpine
+    container_name: desafio3-cache
+    networks:
+      - internal-net
+
+  web:
+    build: ./web
+    container_name: desafio3-web
+    depends_on:
+      - db
+      - cache
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: app
+      DB_PASSWORD: app
+      DB_NAME: appdb
+      CACHE_HOST: cache
+      CACHE_PORT: "6379"
+    ports:
+      - "8081:5000"
+    networks:
+      - internal-net
+
+networks:
+  internal-net:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+
