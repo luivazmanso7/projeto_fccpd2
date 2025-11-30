@@ -15,4 +15,4 @@ Cada pasta (`desafio1` a `desafio5`) tem um exemplo separado, com código e Dock
 ## Como usar
 
 - Entre na pasta do desafio que você quer testar.
-- Leia o `README.md` daquela pasta e siga os comandos (normalmente `docker build` / `docker compose up` ou `./run.sh`).
+- Leia o `README.md` 
