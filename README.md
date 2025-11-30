@@ -2,9 +2,6 @@
 
 Este repositório reúne cinco desafios de Docker e microsserviços.
 
-Cada pasta (`desafio1` a `desafio5`) tem um exemplo separado, com código e Dockerfile próprio.
-
-## O que tem em cada desafio
 
 - `desafio1`: dois containers na mesma rede Docker. Um é um servidor Flask na porta 8080 e o outro é um cliente que fica chamando o servidor com `curl`.
 - `desafio2`: script em Python com SQLite gravando em `/data/desafio2.sqlite`, usando volume Docker para manter o arquivo mesmo depois que o container é removido.
